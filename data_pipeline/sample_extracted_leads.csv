@@ -1,0 +1,11 @@
+id,company_name,domain,revenue_tier,employees,legacy_automation,opportunity_score,recommended_pitch
+REC-001,"Acme AI Systems",acmeai.io,"$10M-$50M",120,false,70,"Autonomous AI Inbound Triage & CRM Integration"
+REC-002,"PeakFlow Automation",peakflow.co,"$5M-$10M",45,true,80,"n8n Migration Audit (Zero Per-Task Execution Fees)"
+REC-003,"OmniChannel Scale",omnichannelscale.com,"$20M-$100M",310,false,70,"Autonomous AI Inbound Triage & CRM Integration"
+REC-004,"Apex Data Logistics",apexdata.net,"$2M-$5M",22,false,55,"Autonomous AI Inbound Triage & CRM Integration"
+REC-005,"Nexus Cloud Security",nexuscloud.io,"$50M+",580,false,50,"Autonomous AI Inbound Triage & CRM Integration"
+REC-006,"HyperScale Outbound",hyperscale.agency,"$1M-$3M",15,true,85,"n8n Migration Audit (Zero Per-Task Execution Fees)"
+REC-007,"Vanguard Retail Tech",vanguardretail.com,"$15M-$30M",160,false,70,"Autonomous AI Inbound Triage & CRM Integration"
+REC-008,"Starlight Media",starlightmedia.co,"$5M-$10M",60,true,95,"n8n Migration Audit (Zero Per-Task Execution Fees)"
+REC-009,"Elevate Health AI",elevatehealth.ai,"$10M-$25M",85,false,70,"Autonomous AI Inbound Triage & CRM Integration"
+REC-010,"SwiftLogistics Express",swiftlog.io,"$30M-$70M",420,false,65,"Autonomous AI Inbound Triage & CRM Integration"

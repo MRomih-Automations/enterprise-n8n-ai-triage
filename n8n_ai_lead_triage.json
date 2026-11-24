@@ -1,0 +1,174 @@
+{
+  "name": "Enterprise Autonomous AI Lead Triage & CRM Sync",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "inbound-lead",
+        "options": {}
+      },
+      "id": "1",
+      "name": "Inbound Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "id": "2",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [460, 480],
+      "credentials": {
+        "openAiApi": {
+          "id": "credential-openai",
+          "name": "OpenAI Production Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "text": "={{ $json.body.message || $json.body.notes }}",
+        "schemaType": "manual",
+        "jsonSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"urgency\": { \"type\": \"string\", \"enum\": [\"high\", \"medium\", \"low\"] },\n    \"estimated_budget\": { \"type\": \"number\" },\n    \"lead_score\": { \"type\": \"integer\", \"minimum\": 0, \"maximum\": 100 },\n    \"summary\": { \"type\": \"string\" },\n    \"recommended_service\": { \"type\": \"string\" },\n    \"personalized_icebreaker\": { \"type\": \"string\" }\n  },\n  \"required\": [\"urgency\", \"lead_score\", \"summary\", \"personalized_icebreaker\"]\n}"
+      },
+      "id": "3",
+      "name": "AI Qualification & Scoring Agent",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "typeVersion": 1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.lead_score }}",
+              "operation": "largerEqual",
+              "value2": 70
+            }
+          ]
+        }
+      },
+      "id": "4",
+      "name": "High Value Filter",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [700, 300]
+    },
+    {
+      "parameters": {
+        "channel": "#high-value-leads",
+        "text": "=🚨 *HIGH TICKET LEAD DETECTED* (Score: {{ $json.lead_score }}/100)\n*Company:* {{ $('Inbound Webhook').item.json.body.company || 'N/A' }}\n*Contact:* {{ $('Inbound Webhook').item.json.body.email }}\n*Budget:* ${{ $json.estimated_budget || 'Custom' }}\n*Summary:* {{ $json.summary }}\n\n*Drafted Outreach Snippet:*\n_{{ $json.personalized_icebreaker }}_",
+        "otherOptions": {}
+      },
+      "id": "5",
+      "name": "Slack VIP Alert",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [940, 200]
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "email": "={{ $('Inbound Webhook').item.json.body.email }}",
+        "additionalFields": {
+          "firstName": "={{ $('Inbound Webhook').item.json.body.firstName }}",
+          "lastName": "={{ $('Inbound Webhook').item.json.body.lastName }}",
+          "leadScore": "={{ $json.lead_score }}",
+          "urgency": "={{ $json.urgency }}",
+          "leadStatus": "QUALIFIED_VIP"
+        }
+      },
+      "id": "6",
+      "name": "Sync to CRM (HubSpot)",
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 2,
+      "position": [940, 360]
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "email": "={{ $('Inbound Webhook').item.json.body.email }}",
+        "additionalFields": {
+          "leadScore": "={{ $json.lead_score }}",
+          "urgency": "low",
+          "leadStatus": "NURTURE_SEQUENCE"
+        }
+      },
+      "id": "7",
+      "name": "Nurture Campaign Sync",
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 2,
+      "position": [940, 520]
+    }
+  ],
+  "connections": {
+    "Inbound Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Qualification & Scoring Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Qualification & Scoring Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Qualification & Scoring Agent": {
+      "main": [
+        [
+          {
+            "node": "High Value Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "High Value Filter": {
+      "main": [
+        [
+          {
+            "node": "Slack VIP Alert",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Sync to CRM (HubSpot)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Nurture Campaign Sync",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

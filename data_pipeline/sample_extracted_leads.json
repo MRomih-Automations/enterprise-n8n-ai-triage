@@ -1,0 +1,181 @@
+[
+  {
+    "id": "REC-001",
+    "company_name": "Acme AI Systems",
+    "domain": "acmeai.io",
+    "website_url": "https://acmeai.io",
+    "revenue_tier": "$10M-$50M",
+    "employees": 120,
+    "tech_stack": [
+      "React",
+      "Node.js",
+      "AWS",
+      "Postgres"
+    ],
+    "legacy_automation_detected": false,
+    "automation_opportunity_score": 70,
+    "recommended_pitch": "Autonomous AI Inbound Triage & CRM Integration",
+    "processed_at": "2026-11-24T10:54:34.328Z"
+  },
+  {
+    "id": "REC-002",
+    "company_name": "PeakFlow Automation",
+    "domain": "peakflow.co",
+    "website_url": "https://peakflow.co",
+    "revenue_tier": "$5M-$10M",
+    "employees": 45,
+    "tech_stack": [
+      "Python",
+      "Django",
+      "Docker",
+      "Zapier"
+    ],
+    "legacy_automation_detected": true,
+    "automation_opportunity_score": 80,
+    "recommended_pitch": "n8n Migration Audit (Zero Per-Task Execution Fees)",
+    "processed_at": "2026-11-24T10:54:34.329Z"
+  },
+  {
+    "id": "REC-003",
+    "company_name": "OmniChannel Scale",
+    "domain": "omnichannelscale.com",
+    "website_url": "http://omnichannelscale.com",
+    "revenue_tier": "$20M-$100M",
+    "employees": 310,
+    "tech_stack": [
+      "Next.js",
+      "Tailwind",
+      "Shopify Plus",
+      "n8n"
+    ],
+    "legacy_automation_detected": false,
+    "automation_opportunity_score": 70,
+    "recommended_pitch": "Autonomous AI Inbound Triage & CRM Integration",
+    "processed_at": "2026-11-24T10:54:34.329Z"
+  },
+  {
+    "id": "REC-004",
+    "company_name": "Apex Data Logistics",
+    "domain": "apexdata.net",
+    "website_url": "https://apexdata.net",
+    "revenue_tier": "$2M-$5M",
+    "employees": 22,
+    "tech_stack": [
+      "Vue",
+      "FastAPI",
+      "GCP",
+      "BigQuery"
+    ],
+    "legacy_automation_detected": false,
+    "automation_opportunity_score": 55,
+    "recommended_pitch": "Autonomous AI Inbound Triage & CRM Integration",
+    "processed_at": "2026-11-24T10:54:34.329Z"
+  },
+  {
+    "id": "REC-005",
+    "company_name": "Nexus Cloud Security",
+    "domain": "nexuscloud.io",
+    "website_url": "https://nexuscloud.io",
+    "revenue_tier": "$50M+",
+    "employees": 580,
+    "tech_stack": [
+      "Go",
+      "Kubernetes",
+      "AWS",
+      "Kafka"
+    ],
+    "legacy_automation_detected": false,
+    "automation_opportunity_score": 50,
+    "recommended_pitch": "Autonomous AI Inbound Triage & CRM Integration",
+    "processed_at": "2026-11-24T10:54:34.329Z"
+  },
+  {
+    "id": "REC-006",
+    "company_name": "HyperScale Outbound",
+    "domain": "hyperscale.agency",
+    "website_url": "https://hyperscale.agency",
+    "revenue_tier": "$1M-$3M",
+    "employees": 15,
+    "tech_stack": [
+      "TypeScript",
+      "Make",
+      "Instantly",
+      "Smartlead"
+    ],
+    "legacy_automation_detected": true,
+    "automation_opportunity_score": 85,
+    "recommended_pitch": "n8n Migration Audit (Zero Per-Task Execution Fees)",
+    "processed_at": "2026-11-24T10:54:34.329Z"
+  },
+  {
+    "id": "REC-007",
+    "company_name": "Vanguard Retail Tech",
+    "domain": "vanguardretail.com",
+    "website_url": "https://vanguardretail.com",
+    "revenue_tier": "$15M-$30M",
+    "employees": 160,
+    "tech_stack": [
+      "Ruby on Rails",
+      "PostgreSQL",
+      "Redis"
+    ],
+    "legacy_automation_detected": false,
+    "automation_opportunity_score": 70,
+    "recommended_pitch": "Autonomous AI Inbound Triage & CRM Integration",
+    "processed_at": "2026-11-24T10:54:34.329Z"
+  },
+  {
+    "id": "REC-008",
+    "company_name": "Starlight Media",
+    "domain": "starlightmedia.co",
+    "website_url": "https://starlightmedia.co",
+    "revenue_tier": "$5M-$10M",
+    "employees": 60,
+    "tech_stack": [
+      "WordPress",
+      "PHP",
+      "MySQL",
+      "Zapier"
+    ],
+    "legacy_automation_detected": true,
+    "automation_opportunity_score": 95,
+    "recommended_pitch": "n8n Migration Audit (Zero Per-Task Execution Fees)",
+    "processed_at": "2026-11-24T10:54:34.329Z"
+  },
+  {
+    "id": "REC-009",
+    "company_name": "Elevate Health AI",
+    "domain": "elevatehealth.ai",
+    "website_url": "https://elevatehealth.ai",
+    "revenue_tier": "$10M-$25M",
+    "employees": 85,
+    "tech_stack": [
+      "Python",
+      "PyTorch",
+      "React",
+      "HIPAA-Cloud"
+    ],
+    "legacy_automation_detected": false,
+    "automation_opportunity_score": 70,
+    "recommended_pitch": "Autonomous AI Inbound Triage & CRM Integration",
+    "processed_at": "2026-11-24T10:54:34.329Z"
+  },
+  {
+    "id": "REC-010",
+    "company_name": "SwiftLogistics Express",
+    "domain": "swiftlog.io",
+    "website_url": "https://swiftlog.io",
+    "revenue_tier": "$30M-$70M",
+    "employees": 420,
+    "tech_stack": [
+      "Java",
+      "Spring Boot",
+      "Azure",
+      "RabbitMQ"
+    ],
+    "legacy_automation_detected": false,
+    "automation_opportunity_score": 65,
+    "recommended_pitch": "Autonomous AI Inbound Triage & CRM Integration",
+    "processed_at": "2026-11-24T10:54:34.329Z"
+  }
+]
